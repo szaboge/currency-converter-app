@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-12 currency">
     <span class="flag-icon image-circle flag-icon-squared flag-icon-{{currency.imagePath}}"></span>
-    {{currency.name}} {{currency.imagePath}}
+    {{currency.name}} {{currency.rate | number:'.0-2'}}
   </div>
 </div>
 

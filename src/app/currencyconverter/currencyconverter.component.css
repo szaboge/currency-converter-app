@@ -1,0 +1,7 @@
+.currency{
+  background-color: white;
+  border-radius: 4px;
+  padding: 5px;
+  margin-top: 10px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
