@@ -16,6 +16,7 @@ export class CurrencyconverterComponent implements OnInit {
 
   onGet() {
     this.currencyManager.getCurrencies();
+    this.currencyManager.printCurrency();
   }
 
 }
