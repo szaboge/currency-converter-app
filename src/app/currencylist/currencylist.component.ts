@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Currency} from '../currency.model';
 
 @Component({
   selector: 'app-currencylist',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrencylistComponent implements OnInit {
 
-  constructor() { }
+  currencies: Currency[] = [new Currency('HUF', 'temp'), new Currency('EUR', 'temp')];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

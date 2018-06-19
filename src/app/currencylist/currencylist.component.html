@@ -1,3 +1,7 @@
-<p>
-  currencylist works!
-</p>
+<div class="row currencylist">
+  <div class="col-md-12">
+    <app-currency *ngFor="let currency of currencies" [CurrencyObject]="currency"></app-currency>
+  </div>
+</div>
+
+

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CurrencyManagerService} from '../currency-manager.service';
 
 @Component({
   selector: 'app-currencyconverter',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrencyconverterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private currencyManager: CurrencyManagerService) {
+  }
 
   ngOnInit() {
+  }
+
+  onGet() {
+    this.currencyManager.getCurrencies();
   }
 
 }
