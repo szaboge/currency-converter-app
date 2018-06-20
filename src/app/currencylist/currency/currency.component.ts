@@ -21,7 +21,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 
 export class CurrencyComponent implements OnInit {
-  @Input('CurrencyObject') currency: {};
+  @Input('CurrencyObject') currency: { name: string, rate: number, imagePath: string };
 
   constructor() {
   }

@@ -2,8 +2,6 @@
   <span class="navbar-brand mb-0 h1" style="color: #00406d">Currency Converter</span>
   <span class="chooser">
     <span class="badge badge-secondary localStyle">Local:</span>
-    <span class="help-commet" placement="bottom" style="cursor: help" ngbTooltip="You can choose local currency.
-    After you choose, the list at the right side is showing you the other currencies value compared to the local currency.">(?)</span>
     <select class="selectpicker" data-width="fit" [(ngModel)]="localSelected"
             (ngModelChange)="onChange()">
     <option *ngFor="let item of getCurrencies()" value="{{item}}">
@@ -11,5 +9,7 @@
       {{item}} - {{getCurrencyObj(item).name}}
     </option>
   </select>
+    <span class="help-commet" placement="bottom" style="cursor: help" ngbTooltip="You can choose local currency.
+    After you choose, the list at the right side is showing you the other currencies value compared to the local currency.">(?)</span>
   </span>
 </nav>
