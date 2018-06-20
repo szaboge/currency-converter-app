@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CurrencyManagerService} from '../currency-manager.service';
 import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-currencyconverter',
   templateUrl: './currencyconverter.component.html',
-  styleUrls: ['./currencyconverter.component.css']
+  styleUrls: ['./currencyconverter.component.css'],
 })
-export class CurrencyconverterComponent implements OnInit {
+export class CurrencyconverterComponent implements OnInit, OnDestroy {
 
   curr_from = 'USD';
   curr_to = 'HUF';
@@ -46,6 +46,10 @@ export class CurrencyconverterComponent implements OnInit {
     this.ref2 = this.currencyManager.currencyConverter(this.curr_to, this.curr_from, 1);
     this.curr_from_fee = this.currencyManager.base[this.curr_from].fee;
     this.curr_to_fee = this.currencyManager.base[this.curr_to].fee;
+  }
+
+  ngOnDestroy() {
+    this.baseSubscription.unsubscribe();
   }
 
 }

@@ -8,6 +8,7 @@ import {CurrencylistComponent} from './currencylist/currencylist.component';
 import {CurrencyconverterComponent} from './currencyconverter/currencyconverter.component';
 import {CurrencyComponent} from './currencylist/currency/currency.component';
 import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule
   ],

@@ -15,7 +15,7 @@
 </div>
 <div class="row choosersRow">
   <div class="col">
-    <select class="selectpicker currencychooser form-control" [(ngModel)]="curr_from" (ngModelChange)="onChange()">
+    <select class="selectpicker currencychooser form-control input-lg" [(ngModel)]="curr_from" (ngModelChange)="onChange()">
       <option *ngFor="let item of getCurrencies()" value="{{item}}">
         <span class="flag-icon image-circle flag-icon-squared flag-icon-{{getCurrencyObj(item).flag}}"></span>
         {{item}} - {{getCurrencyObj(item).name}}

@@ -1,6 +1,6 @@
 # Currency Converter
 
-A little a single page application, which was written in Angular 6 with an external API.
+A little single page application, which was written in Angular 6 with an external API.
 
 ## Note
 
