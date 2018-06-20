@@ -6,8 +6,18 @@
   text-align: center;
 }
 
+.choosersRow{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .currinput {
   padding: 5px;
+  margin: 20px;
+}
+
+.cvinput{
+  font-size: 140%;
 }
 
 .result {
@@ -33,5 +43,4 @@
   margin: 10px;
   font-size: 80%;
   color: darkgrey;
-
 }

@@ -10,7 +10,6 @@ export class HeaderComponent implements OnInit {
 
   localSelected: string;
 
-
   constructor(private currencyManager: CurrencyManagerService) {
   }
 

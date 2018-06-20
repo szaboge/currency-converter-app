@@ -13,6 +13,7 @@ export class CurrencylistComponent implements OnInit, OnDestroy {
   currencies: Currency[] = [];
 
   subscribtion: Subscription;
+  baseSubscription: Subscription;
 
   constructor(private currencyManager: CurrencyManagerService) {
   }
@@ -25,14 +26,22 @@ export class CurrencylistComponent implements OnInit, OnDestroy {
     return this.currencyManager.local;
   }
 
+  setCurrencies(local: string) {
+    this.currencies = this.currencyManager.getCurrencyObjects(local);
+  }
+
   ngOnInit() {
     this.currencies = this.currencyManager.getCurrencyObjects(this.currencyManager.local);
     this.subscribtion = this.currencyManager.localSubject.subscribe(
-      (local: string) => this.currencies = this.currencyManager.getCurrencyObjects(local)
+      (local: string) => this.setCurrencies(local)
+    );
+    this.baseSubscription = this.currencyManager.baseSubject.subscribe(
+      result => this.setCurrencies(this.getLocal())
     );
   }
 
   ngOnDestroy() {
     this.subscribtion.unsubscribe();
+    this.baseSubscription.unsubscribe();
   }
 }

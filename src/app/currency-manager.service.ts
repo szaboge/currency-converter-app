@@ -7,7 +7,8 @@ import {Subject} from 'rxjs';
 
 export class CurrencyManagerService {
 
-  localSubject = new Subject();
+  localSubject = new Subject<string>();
+  baseSubject = new Subject();
   local = 'HUF';
 
   base = {
@@ -97,7 +98,7 @@ export class CurrencyManagerService {
     }
   };
 
-  data = {
+  /*data = {
     'success': true,
     'timestamp': 1529410088,
     'base': 'EUR',
@@ -272,31 +273,24 @@ export class CurrencyManagerService {
       'ZMW': 11.425514,
       'ZWL': 372.064159
     }
-  };
+  };*/
 
-  /*data = {};*/
-
+  data = {};
 
   constructor(private http: HttpClient) {
     this.initialize();
-    this.localSubject.next(this.local);
   }
 
-
   initialize() {
-
-    /*this.http.get('http://data.fixer.io/api/latest?access_key=49657a79383de3ce62a74b1be69381e5')
+    this.http.get('http://data.fixer.io/api/latest?access_key=49657a79383de3ce62a74b1be69381e5')
       .subscribe(result => {
         this.data = result;
-        console.log(result);
         for (const i of Object.keys(this.base)) {
           this.base[i].rate = this.data['rates'][i];
         }
+        this.baseSubject.next(this.base);
         console.log(this.base);
-      });*/
-    for (const i of Object.keys(this.base)) {
-      this.base[i].rate = this.data['rates'][i];
-    }
+      });
   }
 
   currencyConverter(from: string, to: string, amount: number) {

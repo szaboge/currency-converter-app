@@ -1,10 +1,17 @@
 <div class="row currinput">
   <div class="col-md-4"></div>
-  <div class="col-md-4"><input min="0" type="number" class="form-control" style="text-align: center"
-                               [(ngModel)]="inputValue" (ngModelChange)="onChange()"></div>
+  <div class="col-md-4">
+    <input
+      min="0"
+      type="number"
+      class="form-control cvinput"
+      style="text-align: center"
+      [(ngModel)]="inputValue"
+      (ngModelChange)="onChange()">
+  </div>
   <div class="col-md-4"></div>
 </div>
-<div class="row">
+<div class="row choosersRow">
   <div class="col">
     <select class="selectpicker currencychooser form-control" [(ngModel)]="curr_from" (ngModelChange)="onChange()">
       <option *ngFor="let item of getCurrencies()" value="{{item}}">
@@ -27,7 +34,7 @@
 </div>
 <div class="row">
   <div class="col result_detail" style="justify-content: flex-end">{{inputValue}} {{curr_from}} =</div>
-  <div class="col result" style="text-align: center">{{actual_result | number:'.0-1'}}</div>
+  <div class="col-md-auto result" style="text-align: center">{{actual_result | number:'.0-1'}}</div>
   <div class="col result_detail">{{curr_to}}</div>
 </div>
 <div class="row details">

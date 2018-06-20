@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CurrencyManagerService} from '../currency-manager.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-currencyconverter',
@@ -15,13 +16,16 @@ export class CurrencyconverterComponent implements OnInit {
 
   ref1 = 0;
   ref2 = 0;
+  baseSubscription: Subscription;
 
 
   constructor(private currencyManager: CurrencyManagerService) {
   }
 
   ngOnInit() {
-    this.onChange();
+    this.baseSubscription = this.currencyManager.baseSubject.subscribe(
+      result => this.onChange()
+    );
   }
 
   getCurrencies() {
