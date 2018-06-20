@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Currency} from './currency.model';
-import {forEach} from '@angular/router/src/utils/collection';
+import {Subject} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 
 export class CurrencyManagerService {
 
+  localSubject = new Subject();
   local = 'HUF';
+
   base = {
     'HUF': {
       name: 'Hungarian Forint',
@@ -95,7 +97,7 @@ export class CurrencyManagerService {
     }
   };
 
-  testData = {
+  data = {
     'success': true,
     'timestamp': 1529410088,
     'base': 'EUR',
@@ -272,22 +274,29 @@ export class CurrencyManagerService {
     }
   };
 
+  /*data = {};*/
+
 
   constructor(private http: HttpClient) {
     this.initialize();
+    this.localSubject.next(this.local);
   }
 
 
   initialize() {
-    for (const i of Object.keys(this.base)) {
-      this.base[i].rate = this.testData['rates'][i];
-    }
-  }
 
-  getCurrencies() {
-    // this.http.get('http://data.fixer.io/api/latest?access_key=49657a79383de3ce62a74b1be69381e5')
-    // .subscribe(result => console.log(result));
-    return this.testData;
+    /*this.http.get('http://data.fixer.io/api/latest?access_key=49657a79383de3ce62a74b1be69381e5')
+      .subscribe(result => {
+        this.data = result;
+        console.log(result);
+        for (const i of Object.keys(this.base)) {
+          this.base[i].rate = this.data['rates'][i];
+        }
+        console.log(this.base);
+      });*/
+    for (const i of Object.keys(this.base)) {
+      this.base[i].rate = this.data['rates'][i];
+    }
   }
 
   currencyConverter(from: string, to: string, amount: number) {
@@ -305,15 +314,14 @@ export class CurrencyManagerService {
     return result;
   }
 
-  getCurrencyObjects() {
+  getCurrencyObjects(local: string) {
+    this.local = local;
     const currencies: Currency[] = [];
-
-    for (const item of Object.keys(this.base)) {
-      if (item !== this.local) {
-        currencies.push(new Currency(item, this.base[item].flag, this.currencyConverter(item, this.local, 1)));
+    for (const i of Object.keys(this.base)) {
+      if (i !== local) {
+        currencies.push(new Currency(i, this.currencyConverter(i, local, 1), this.base[i].flag, this.local));
       }
     }
-
     return currencies;
   }
 }

@@ -1,5 +1,13 @@
 <div class="row currencylist">
   <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 currency">
+        <div class="row">
+          <div class="col-md-5"></div>
+          <div class="col-md-7" style="text-align: center">{{getLocal()}} ({{getLocalCurrencyObj().symbol}})</div>
+        </div>
+      </div>
+    </div>
     <app-currency *ngFor="let currency of currencies" [CurrencyObject]="currency"></app-currency>
   </div>
 </div>

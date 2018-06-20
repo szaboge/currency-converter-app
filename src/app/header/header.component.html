@@ -1,3 +1,12 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar">
+
   <span class="navbar-brand mb-0 h1">Currency Converter</span>
+
+  <select class="selectpicker currencychooser" [(ngModel)]="localSelected"
+          (ngModelChange)="onChange()">
+    <option *ngFor="let item of getCurrencies()" value="{{item}}">
+      <span class="flag-icon image-circle flag-icon-squared flag-icon-{{getCurrencyObj(item).flag}}"></span>
+      {{item}} - {{getCurrencyObj(item).name}}
+    </option>
+  </select>
 </nav>

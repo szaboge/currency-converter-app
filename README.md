@@ -11,3 +11,5 @@ This is an 'application for a job', so handle like that.
 - Currency API - [Fixer.io](https://fixer.io)
 - SVG Flags - [lipis/flag-icon-css](https://github.com/lipis/flag-icon-css)
 - [Bootstrap 4](https://github.com/twbs/bootstrap)
+- [Popper.js](https://github.com/FezVrasta/popper.js)
+- [jQuery](https://www.npmjs.com/package/jquery)

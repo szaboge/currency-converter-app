@@ -7,6 +7,7 @@ import {HeaderComponent} from './header/header.component';
 import {CurrencylistComponent} from './currencylist/currencylist.component';
 import {CurrencyconverterComponent} from './currencyconverter/currencyconverter.component';
 import {CurrencyComponent} from './currencylist/currency/currency.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {CurrencyComponent} from './currencylist/currency/currency.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

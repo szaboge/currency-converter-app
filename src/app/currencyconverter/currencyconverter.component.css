@@ -1,7 +1,37 @@
-.currency{
-  background-color: white;
-  border-radius: 4px;
+.image-circle {
+  border-radius: 100%;
+}
+
+.currencychooser {
+  text-align: center;
+}
+
+.currinput {
   padding: 5px;
-  margin-top: 10px;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.result {
+  font-size: 350%;
+  color: steelblue;
+}
+
+.result_detail {
+  font-size: 120%;
+  color: darkgrey;
+  display: flex;
+  align-content: right;
+  align-items: center;
+}
+
+.img-center{
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center;
+}
+
+.details{
+  margin: 10px;
+  font-size: 80%;
+  color: darkgrey;
+
 }
