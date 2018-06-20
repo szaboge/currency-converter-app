@@ -26,6 +26,7 @@ export class CurrencyconverterComponent implements OnInit {
     this.baseSubscription = this.currencyManager.baseSubject.subscribe(
       result => this.onChange()
     );
+    this.currencyManager.initialize();
   }
 
   getCurrencies() {

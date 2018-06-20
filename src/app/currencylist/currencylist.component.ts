@@ -32,6 +32,7 @@ export class CurrencylistComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.currencies = this.currencyManager.getCurrencyObjects(this.currencyManager.local);
+
     this.subscribtion = this.currencyManager.localSubject.subscribe(
       (local: string) => this.setCurrencies(local)
     );

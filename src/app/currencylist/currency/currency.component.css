@@ -12,3 +12,7 @@
 .image-circle{
   border-radius: 100%;
 }
+
+.rateStyle{
+  overflow-wrap: break-word;
+}
