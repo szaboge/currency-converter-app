@@ -13,3 +13,4 @@ This is an 'application for a job', so handle like that.
 - [Bootstrap 4](https://github.com/twbs/bootstrap)
 - [Popper.js](https://github.com/FezVrasta/popper.js)
 - [jQuery](https://www.npmjs.com/package/jquery)
+- [bootstrap-select](https://github.com/snapappointments/bootstrap-select)
