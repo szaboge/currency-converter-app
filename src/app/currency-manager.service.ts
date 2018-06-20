@@ -115,7 +115,6 @@ export class CurrencyManagerService {
   data = {};
 
   constructor(private http: HttpClient) {
-    this.initialize();
   }
 
   initialize() {

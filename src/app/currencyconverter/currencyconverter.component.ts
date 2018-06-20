@@ -9,13 +9,16 @@ import {Subscription} from 'rxjs';
 })
 export class CurrencyconverterComponent implements OnInit {
 
-  curr_from = 'EUR';
+  curr_from = 'USD';
   curr_to = 'HUF';
+
   actual_result = 0;
   inputValue = 1;
 
   ref1 = 0;
   ref2 = 0;
+  curr_from_fee = 1;
+  curr_to_fee = 1;
   baseSubscription: Subscription;
 
 
@@ -41,6 +44,8 @@ export class CurrencyconverterComponent implements OnInit {
     this.actual_result = this.currencyManager.currencyConverter(this.curr_from, this.curr_to, this.inputValue);
     this.ref1 = this.currencyManager.currencyConverter(this.curr_from, this.curr_to, 1);
     this.ref2 = this.currencyManager.currencyConverter(this.curr_to, this.curr_from, 1);
+    this.curr_from_fee = this.currencyManager.base[this.curr_from].fee;
+    this.curr_to_fee = this.currencyManager.base[this.curr_to].fee;
   }
 
 }
