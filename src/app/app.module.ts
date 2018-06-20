@@ -9,7 +9,7 @@ import {CurrencyconverterComponent} from './currencyconverter/currencyconverter.
 import {CurrencyComponent} from './currencylist/currency/currency.component';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

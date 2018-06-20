@@ -1,6 +1,6 @@
 <div class="row currinput">
   <div class="col-md-4"></div>
-  <div class="col-md-4"  style="text-align: center">
+  <div class="col-md-4" style="text-align: center">
     <label>Amount</label>
     <input
       min="0"
@@ -15,7 +15,8 @@
 </div>
 <div class="row choosersRow">
   <div class="col">
-    <select class="selectpicker currencychooser form-control input-lg" [(ngModel)]="curr_from" (ngModelChange)="onChange()">
+    <select class="selectpicker currencychooser form-control input-lg" [(ngModel)]="curr_from"
+            (ngModelChange)="onChange()">
       <option *ngFor="let item of getCurrencies()" value="{{item}}">
         <span class="flag-icon image-circle flag-icon-squared flag-icon-{{getCurrencyObj(item).flag}}"></span>
         {{item}} - {{getCurrencyObj(item).name}}
@@ -36,7 +37,9 @@
 </div>
 <div class="row">
   <div class="col result_detail" style="justify-content: flex-end">{{inputValue}} {{curr_from}} =</div>
-  <div class="col-md-auto result" style="text-align: center">{{actual_result | number:'.0-1'}}</div>
+  <div class="col-md-auto result" [@item]="animationstate" style="text-align: center">{{actual_result |
+    number:'.0-1'}}
+  </div>
   <div class="col result_detail">{{curr_to}}</div>
 </div>
 <div class="row details">
@@ -50,9 +53,12 @@
   <div class="col">1 {{curr_to}} = {{ref2| number:'.0-3'}} {{curr_from}}</div>
 </div>
 <div class="row fee" *ngIf="curr_from !== 'EUR' && curr_to !== 'EUR' && curr_from !== curr_to">
-  <div class="col" style="text-align: right">{{curr_from}} -> EUR fee: {{curr_from_fee}}%</div>
+  <div class="col" style="text-align: right">{{curr_from}} -> EUR fee: {{curr_from_fee}}%<span placement="left" style="cursor: help" ngbTooltip="The currency firstly converted to EUR and then the target currency.
+    Every conversion get different fees.">(?)</span></div>
   <div class="col-md-1"></div>
-  <div class="col">EUR -> {{curr_to}} fee: {{curr_to_fee}}%</div>
+  <div class="col">EUR -> {{curr_to}} fee: {{curr_to_fee}}%
+    <span placement="left" style="cursor: help" ngbTooltip="The currency firstly converted to EUR and then the target currency.
+    Every conversion get different fees.">(?)</span></div>
 </div>
 <div class="row fee" *ngIf="curr_from !== 'EUR' && curr_to === 'EUR'">
   <div class="col-md-12" style="text-align: center">{{curr_from}} -> {{curr_to}} fee: {{curr_from_fee}}%</div>

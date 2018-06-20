@@ -14,3 +14,4 @@ This is an 'application for a job', so handle like that.
 - [Popper.js](https://github.com/FezVrasta/popper.js)
 - [jQuery](https://www.npmjs.com/package/jquery)
 - [bootstrap-select](https://github.com/snapappointments/bootstrap-select)
+- [ng-bootstrap](http://ng-bootstrap.github.io/)

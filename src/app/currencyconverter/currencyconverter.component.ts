@@ -1,13 +1,31 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CurrencyManagerService} from '../currency-manager.service';
 import {Subscription} from 'rxjs';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-currencyconverter',
   templateUrl: './currencyconverter.component.html',
   styleUrls: ['./currencyconverter.component.css'],
+  animations: [
+    trigger('item', [
+      state('normal', style({
+        opacity: 1
+      })),
+      transition('normal <=> *', [
+        animate(0, style(
+          {
+            opacity: 0
+          }
+        )),
+        animate(500)
+      ])
+    ])
+  ]
 })
 export class CurrencyconverterComponent implements OnInit, OnDestroy {
+
+  animationstate = 'other';
 
   curr_from = 'USD';
   curr_to = 'HUF';
@@ -46,6 +64,8 @@ export class CurrencyconverterComponent implements OnInit, OnDestroy {
     this.ref2 = this.currencyManager.currencyConverter(this.curr_to, this.curr_from, 1);
     this.curr_from_fee = this.currencyManager.base[this.curr_from].fee;
     this.curr_to_fee = this.currencyManager.base[this.curr_to].fee;
+
+    this.animationstate = this.animationstate === 'normal' ? 'other' : 'normal';
   }
 
   ngOnDestroy() {
