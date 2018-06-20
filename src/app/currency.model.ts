@@ -1,4 +1,5 @@
 export class Currency {
-  constructor(public name: string, public imagePath: string, public rate: number) {
+  constructor(public name: string, public rate: number, public imagePath: string, public short: string) {
   }
+
 }
