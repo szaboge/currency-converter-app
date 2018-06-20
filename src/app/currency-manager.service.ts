@@ -80,7 +80,7 @@ export class CurrencyManagerService {
     'CNY': {
       name: 'Chinese Yuan Renminbi',
       symbol: '¥',
-      flag: 'ch',
+      flag: 'cn',
       rate: 0
     },
     'RON': {

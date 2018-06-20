@@ -17,10 +17,6 @@ export class CurrencylistComponent implements OnInit, OnDestroy {
   constructor(private currencyManager: CurrencyManagerService) {
   }
 
-  getCurrencies() {
-    return Object.keys(this.currencyManager.base);
-  }
-
   getLocalCurrencyObj() {
     return this.currencyManager.base[this.currencyManager.local];
   }

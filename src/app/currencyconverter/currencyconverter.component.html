@@ -1,11 +1,11 @@
 <div class="row currinput">
   <div class="col-md-4"></div>
-  <div class="col-md-4"><input min="0.001" type="number" class="form-control" style="text-align: center"
+  <div class="col-md-4"><input min="0" type="number" class="form-control" style="text-align: center"
                                [(ngModel)]="inputValue" (ngModelChange)="onChange()"></div>
   <div class="col-md-4"></div>
 </div>
 <div class="row">
-  <div class="col-md-5">
+  <div class="col">
     <select class="selectpicker currencychooser form-control" [(ngModel)]="curr_from" (ngModelChange)="onChange()">
       <option *ngFor="let item of getCurrencies()" value="{{item}}">
         <span class="flag-icon image-circle flag-icon-squared flag-icon-{{getCurrencyObj(item).flag}}"></span>
@@ -13,10 +13,10 @@
       </option>
     </select>
   </div>
-  <div class="col-md-2 img-center">
+  <div class="col-md-1 img-center">
     <img style="max-height: 20px" src="../../assets/right-arrow.svg" class="img-responsive">
   </div>
-  <div class="col-md-5">
+  <div class="col">
     <select class="selectpicker currencychooser form-control" [(ngModel)]="curr_to" (ngModelChange)="onChange()">
       <option *ngFor="let item of getCurrencies()" value="{{item}}">
         <span class="flag-icon image-circle flag-icon-squared flag-icon-{{getCurrencyObj(item).flag}}"></span>
@@ -31,14 +31,14 @@
   <div class="col result_detail">{{curr_to}}</div>
 </div>
 <div class="row details">
-  <div class="col-md-5" style="text-align: right">{{getCurrencyObj(curr_from).name}}</div>
-  <div class="col-md-2"></div>
-  <div class="col-md-5">{{getCurrencyObj(curr_to).name}}</div>
+  <div class="col" style="text-align: right">{{getCurrencyObj(curr_from).name}}</div>
+  <div class="col-md-1"></div>
+  <div class="col">{{getCurrencyObj(curr_to).name}}</div>
 </div>
 <div class="row details">
-  <div class="col-md-5" style="text-align: right">1 {{curr_from}} = {{ref1| number:'.0-3'}} {{curr_to}}</div>
-  <div class="col-md-2"></div>
-  <div class="col-md-5">1 {{curr_to}} = {{ref2| number:'.0-3'}} {{curr_from}}</div>
+  <div class="col" style="text-align: right">1 {{curr_from}} = {{ref1| number:'.0-3'}} {{curr_to}}</div>
+  <div class="col-md-1"></div>
+  <div class="col">1 {{curr_to}} = {{ref2| number:'.0-3'}} {{curr_from}}</div>
 </div>
 
 
